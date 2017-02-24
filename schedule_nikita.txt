@@ -1,0 +1,4 @@
+Schedule and deliverable:
+- Get a working server up that can be connected to locally through a port - 03/02/17 by 5pm (estimate: 4 hrs)
+- Get a working client that can connect to the hosted server - 03/09/17 by 5pm (estimate: 4 hrs)
+- Get the server working remotely for others to connect to through the client - 3/16/17 by 5pm (estiamte: 5 hrs)
