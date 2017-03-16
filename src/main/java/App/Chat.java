@@ -1,3 +1,5 @@
+package App;
+
 import org.eclipse.jetty.websocket.api.*;
 import org.json.*;
 import java.text.*;
@@ -35,7 +37,7 @@ public class Chat {
     }
 
     //Builds a HTML element with a sender-name, a message, and a timestamp,
-    private static String createHtmlMessageFromSender(String sender, String message) {
+    public static String createHtmlMessageFromSender(String sender, String message) {
         return article().with(
                 b(sender + " says:"),
                 p(message),

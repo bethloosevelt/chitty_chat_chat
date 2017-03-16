@@ -1,4 +1,4 @@
-# Chitty Chat Chat
+# Chitty App.Chat App.Chat
 
 *By **Nikita Buyevich** and **Dale Wesa***
 
@@ -15,7 +15,7 @@ Basic useful feature list:
 
 ```bash
 mvn package
-mvn exec:java -Dexec.mainClass="Chat"
+mvn exec:java -Dexec.mainClass="App.Chat"
 ```
 
 
