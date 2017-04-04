@@ -14,6 +14,10 @@ Basic useful feature list:
 **To Run the Application locally:**
 
 ```bash
+Run the command ./start
+```
+or
+```bash
 mvn package
 mvn exec:java -Dexec.mainClass="Chat"
 ```

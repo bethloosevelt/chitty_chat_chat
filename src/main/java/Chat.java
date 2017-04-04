@@ -10,8 +10,7 @@ import static spark.Spark.*;
 public class Chat {
 
     // this map is shared between sessions and threads, so it needs to be thread-safe (http://stackoverflow.com/a/2688817)
-    static Map<Session, String> userUsernameMap = new ConcurrentHashMap<>();
-    static int nextUserNumber = 1; //Assign to username for next connecting user
+    static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
         staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
@@ -24,9 +23,15 @@ public class Chat {
     public static void broadcastMessage(String sender, String message) {
         userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
             try {
+                Collection<User> values = userUsernameMap.values();
+                List<String> usernames = new ArrayList<String>();
+                for(User user : values){
+                    usernames.add(user.Username);
+
+                }
                 session.getRemote().sendString(String.valueOf(new JSONObject()
                         .put("userMessage", createHtmlMessageFromSender(sender, message))
-                        .put("userlist", userUsernameMap.values())
+                        .put("userlist", usernames)
                 ));
             } catch (Exception e) {
                 e.printStackTrace();
