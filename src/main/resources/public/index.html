@@ -12,13 +12,16 @@
 
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-6">
-            <h2>Chitty Chat Chat - Beta</h2>
-            <div>
-                <input id="message" placeholder="Try out emojis by typing a semicolon :">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h2>Chitty Chat Chat - Beta</h2>
+                <div id="chatControls">
+                    <input id="message" placeholder="Type your message">
+                    <button id="send" class="btn btn-default">Send</button>
+                </div>
+                <div id="chat">    <!-- Built by JS --> </div>   
             </div>
             <div id="chat">    <!-- Built by JS --> </div>
         </div>
