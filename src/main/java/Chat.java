@@ -18,6 +18,7 @@ public class Chat {
         staticFiles.expireTime(600);
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
+        System.out.println("running on port: " + port());
     }
 
     static int getHerokuAssignedPort() {
