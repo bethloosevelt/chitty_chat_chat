@@ -15,9 +15,9 @@ public class Chat {
     static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        port(80);
-        staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
-        staticFiles.expireTime(600);
+
+        port(Integer.valueOf(System.getenv("PORT")));
+        staticFileLocation("/public");
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
         System.out.println("running on port: " + port());

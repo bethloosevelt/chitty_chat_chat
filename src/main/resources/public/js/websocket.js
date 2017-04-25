@@ -1,5 +1,5 @@
 //Establish the WebSocket connection and set up event handlers
-var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/chat/");
+var webSocket = new WebSocket("wss://" + location.hostname + ":" + location.port + "/chat/");
 var username;
 var guid;
 var message;
