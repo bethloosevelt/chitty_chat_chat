@@ -22,11 +22,6 @@ li {
     margin: 5px 0;
 }
 
-#chatControls {
-    overflow: auto;
-    margin: 0 0 5px 0
-}
-
 #userlist {
     position: fixed;
     left: 50%;

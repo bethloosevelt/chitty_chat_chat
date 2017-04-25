@@ -4,34 +4,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chitty Chat Chat - Beta</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jemoji.min.css">
 
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-                <h2>Chitty Chat Chat - Alpha</h2>
-                <div id="chatControls">
-                    <input id="message" placeholder="Type your message">
-                    <button id="send" class="btn btn-default">Send</button>
-                </div>
-                <div id="chat">    <!-- Built by JS --> </div>   
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <h2>Chitty Chat Chat - Beta</h2>
+            <div>
+                <input id="message" placeholder="Try out emojis by typing a semicolon :">
             </div>
-            <div class="col-md-2 pull-left">
-                <ul id="userlist"> <!-- Built by JS --> </ul>
-            </div>
-            <div class="col-md-2"></div>
+            <div id="chat">    <!-- Built by JS --> </div>
         </div>
+        <div class="col-md-2 pull-left">
+            <ul id="userlist"> <!-- Built by JS --> </ul>
+        </div>
+        <div class="col-md-2"></div>
     </div>
+</div>
 
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/guid.min.js"></script>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/guid.min.js"></script>
+<script src="js/emoji.min.js"></script>
+<script src="js/jemoji.min.js"></script>
+<script src="js/faker.min.js"></script>
+<script src="js/notify.min.js"></script>
 
-    <script src="js/websocket.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

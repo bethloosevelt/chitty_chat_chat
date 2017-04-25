@@ -7,20 +7,21 @@ import java.util.concurrent.ConcurrentHashMap;
 import static j2html.TagCreator.*;
 import static spark.Spark.*;
 
-
-
 public class Chat {
 
     // this map is shared between sessions and threads, so it needs to be thread-safe (http://stackoverflow.com/a/2688817)
     static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-
-        port(Integer.valueOf(System.getenv("PORT")));
-        staticFileLocation("/public");
+        staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
+        staticFiles.expireTime(600000);
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
-        System.out.println("running on port: " + port());
+        // port(Integer.valueOf(System.getenv("PORT")));
+        // staticFileLocation("/public");
+        // webSocket("/chat", ChatWebSocketHandler.class);
+        //init();
+        // System.out.println("running on port: " + port());
     }
 
     //Sends a message from one user to all users, along with a list of current usernames

@@ -7,6 +7,8 @@ Basic useful feature list:
  * Create private/public chatrooms to share with others
  * Have moderator commands to control other users (kick, ban, mute, etc.)
  * Encrypted messages sent back and forth
+ * Emoji support
+ * Anonymous name generation
  * Quick and easy
  
 
