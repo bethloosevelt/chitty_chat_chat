@@ -17,6 +17,7 @@ public class Chat {
         staticFiles.expireTime(600);
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
+        System.out.println(port());
     }
 
     //Sends a message from one user to all users, along with a list of current usernames
