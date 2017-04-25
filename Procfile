@@ -1,2 +1,1 @@
-mvn package
-mvn exec:java -Dexec.mainClass="Chat"
+web: maven pack && mvn exec:java -Dexec.mainClass="Chat"
