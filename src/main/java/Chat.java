@@ -7,26 +7,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import static j2html.TagCreator.*;
 import static spark.Spark.*;
 
+
+
 public class Chat {
 
     // this map is shared between sessions and threads, so it needs to be thread-safe (http://stackoverflow.com/a/2688817)
     static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        port(getHerokuAssignedPort());
+        port(80);
         staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
         staticFiles.expireTime(600);
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
         System.out.println("running on port: " + port());
-    }
-
-    static int getHerokuAssignedPort() {
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        if (processBuilder.environment().get("PORT") != null) {
-            return Integer.parseInt(processBuilder.environment().get("PORT"));
-        }
-        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
     //Sends a message from one user to all users, along with a list of current usernames
