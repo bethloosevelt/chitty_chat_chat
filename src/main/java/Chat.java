@@ -13,11 +13,19 @@ public class Chat {
     static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
         staticFiles.expireTime(600);
         webSocket("/chat", ChatWebSocketHandler.class);
         init();
-        System.out.println(port());
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
     //Sends a message from one user to all users, along with a list of current usernames
