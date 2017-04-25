@@ -1,1 +1,1 @@
-web: maven pack && mvn exec:java -Dexec.mainClass="Chat"
+web: java -jar target/Chat.jar
