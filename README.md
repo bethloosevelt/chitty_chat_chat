@@ -16,7 +16,7 @@ Basic useful feature list:
 **To Run the Application locally:**
 
 ```bash
-Run the command ./start
+Run the command ./start.sh
 ```
 or
 ```bash
