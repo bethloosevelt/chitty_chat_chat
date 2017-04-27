@@ -14,16 +14,16 @@ public class Chat {
 
     public static void main(String[] args) {
         // Use this code if you want to run the ap locally:
-            staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
-            staticFiles.expireTime(600000);
+//            staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
+//            staticFiles.expireTime(600000);
+//            webSocket("/chat", ChatWebSocketHandler.class);
+//            init();
+        // Use this code if you want to run this app on Heroku
+            port(Integer.valueOf(System.getenv("PORT")));
+            staticFileLocation("/public");
             webSocket("/chat", ChatWebSocketHandler.class);
             init();
-        // Use this code if you want to run this app on Heroku
-            // port(Integer.valueOf(System.getenv("PORT")));
-            // staticFileLocation("/public");
-            // webSocket("/chat", ChatWebSocketHandler.class);
-            //init();
-            // System.out.println("running on port: " + port());
+            System.out.println("running on port: " + port());
     }
 
     //Sends a message from one user to all users, along with a list of current usernames
