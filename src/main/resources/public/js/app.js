@@ -5,30 +5,15 @@ var guid;
 var message;
 var newUser = true;
 webSocket.onmessage = function (msg) { updateChat(msg); };
-webSocket.onclose = function () { alert("WebSocket connection closed") };
-webSocket.onopen = function () {
-    username = prompt("What would you like your username to be?");
-    if (username === "") {
-      username = faker.name.findName();
-      $.notify(
-        "Since you did not provide a username, a random anonymous name has been generated for you.", 
-        { 
-          globalPosition:"top",
-          className: "success",
-          autoHideDelay: 10000, 
-        }
-      );
+webSocket.onclose = function () {
+  $.notify(
+    "It seems that you have been inactive for a while. We have disconnected you from the server.", 
+    { 
+      globalPosition:"top",
+      className: "error",
+      autoHide: false
     }
-    guid = Guid.raw();
-    var sendObject = {
-      type: "message",
-      username: username,
-      newUser: newUser,
-      id: guid,
-      date: Date.now()
-    };
-    webSocket.send(JSON.stringify(sendObject));
-    newUser = false;
+  );
 };
 
 //Send message if enter is pressed in the input field
@@ -62,12 +47,66 @@ function updateChat(msg) {
     data.userlist.forEach(function (user) {
         insert("userlist", "<li>" + user + "</li>");
     });
+    insert("userlist", "<strong>" + "Users: " + data.userlist.length + "</strong>");
 }
 
 //Helper function for inserting HTML as the first child of an element
 function insert(targetId, message) {
     id(targetId).insertAdjacentHTML("afterbegin", message);
 }
+
+// open emoji menu on emoji button pressed
+$('#emojisBtn').click(function() {
+  $('#message').jemoji('open');
+});
+
+// show chat
+function displayChat() {
+  $('.display-first').hide();
+  $('.display-after').removeClass('display-after');
+}
+
+// user entered a username 
+id("usernameInput").addEventListener("keypress", function (e) {
+    username = document.getElementById("usernameInput").value;
+    if (e.keyCode === 13 && username && username !== "") {
+      guid = Guid.raw();
+      var sendObject = {
+        type: "message",
+        username: username,
+        newUser: newUser,
+        id: guid,
+        date: Date.now()
+      };
+      webSocket.send(JSON.stringify(sendObject));
+      newUser = false;
+      displayChat();
+    }
+});
+
+// user pressed generate random username button
+$('#randomUsernameBtn').click(function() {
+  username = faker.name.findName();
+  $.notify(
+    "Generated a random anonymous name for you. Welcome " + username + "!", 
+    { 
+      globalPosition:"top",
+      className: "success",
+      autoHideDelay: 10000, 
+    }
+  );
+  guid = Guid.raw();
+  var sendObject = {
+    type: "message",
+    username: username,
+    newUser: newUser,
+    id: guid,
+    date: Date.now()
+  };
+  webSocket.send(JSON.stringify(sendObject));
+  newUser = false;
+  displayChat();
+});
 
 //Helper function for selecting element by id
 function id(id) {

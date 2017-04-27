@@ -13,15 +13,17 @@ public class Chat {
     static Map<Session, User> userUsernameMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
-        staticFiles.expireTime(600000);
-        webSocket("/chat", ChatWebSocketHandler.class);
-        init();
-        // port(Integer.valueOf(System.getenv("PORT")));
-        // staticFileLocation("/public");
-        // webSocket("/chat", ChatWebSocketHandler.class);
-        //init();
-        // System.out.println("running on port: " + port());
+        // Use this code if you want to run the ap locally:
+            staticFiles.location("/public"); //index.html is served at localhost:4567 (default port)
+            staticFiles.expireTime(600000);
+            webSocket("/chat", ChatWebSocketHandler.class);
+            init();
+        // Use this code if you want to run this app on Heroku
+            // port(Integer.valueOf(System.getenv("PORT")));
+            // staticFileLocation("/public");
+            // webSocket("/chat", ChatWebSocketHandler.class);
+            //init();
+            // System.out.println("running on port: " + port());
     }
 
     //Sends a message from one user to all users, along with a list of current usernames

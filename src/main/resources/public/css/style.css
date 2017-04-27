@@ -14,22 +14,34 @@ input {
     margin: 5px 0;
 }
 
-button {
-    float: right;
-}
-
 li {
     margin: 5px 0;
 }
 
+.btn {
+    padding: 0.25rem 0.5rem;
+}
+
+#randomUsernameBtn {
+    margin-top: 10px;
+}
+
+#title {
+    font-size: 2em;
+    color: #88BBD6;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.display-after {
+    display: none;
+}
+
 #userlist {
-    position: fixed;
-    left: 50%;
     list-style: none;
-    margin-left: 250px;
-    background: #f0f0f9;
+    background: #C0F0FA;
     padding: 5px 10px;
-    width: 150px;
+    width: 300px;
     top: 11px;
 }
 
@@ -46,10 +58,10 @@ li {
 }
 
 #chat article {
-    background: #f1f1f1;
+    background: #C0F0FA;
     padding: 10px;
     margin: 10px 0;
-    border-left: 5px solid #aaa;
+    border-left: 5px solid #99d3df;
     position: relative;
     word-wrap: break-word;
 }
@@ -64,4 +76,16 @@ li {
     from { transform: none;        }
     50%  { transform: scale(1.05); }
     to   { transform: none;        }
+}
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1600px;
+    }
+}
+
+@media (min-width: 500px) {
+    .container{
+        width: 1000px;
+    }
 }

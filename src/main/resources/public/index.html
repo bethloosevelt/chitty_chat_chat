@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chitty Chat Chat - Beta</title>
+    <title>Chitty Chat Chat</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -12,23 +12,28 @@
 
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-                <h2>Chitty Chat Chat - Beta</h2>
-                <div id="chatControls">
-                    <input id="message" placeholder="Type your message">
-                    <button id="send" class="btn btn-default">Send</button>
-                </div>
-                <div id="chat">    <!-- Built by JS --> </div>   
+<div class="container">
+    <h2 id="title">Chitty Chat Chat</h2>
+    <div class="row display-first">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <p>What would you like your username to be?</p>
+            <input id="usernameInput" placeholder="Enter ">
+            <button id="randomUsernameBtn" type="button" class="btn btn-primary">Give me a random username!</button>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row display-after">
+        <div class="col-md-10">
+            <div>
+                <input id="message" placeholder="Say hello!">
+                <button id="emojisBtn" type="button" class="btn btn-info">Emojis!</button>
             </div>
             <div id="chat">    <!-- Built by JS --> </div>
         </div>
         <div class="col-md-2 pull-left">
             <ul id="userlist"> <!-- Built by JS --> </ul>
         </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 
